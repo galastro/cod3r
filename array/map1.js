@@ -10,7 +10,11 @@ const soma10 = e => e +10
 const triplo = e => e*3
 const paraDInheiro = e => `R$ ${parseFloat(e).toFixed(2).replace('.',',')}`
 
-resultado = nums.map(soma10).map(triplo).map(paraDInheiro)
+resultado = nums
+.map(soma10)
+.map(triplo)
+.map(paraDInheiro)
+
 console.log(resultado)
 
 /* Minha solução:
