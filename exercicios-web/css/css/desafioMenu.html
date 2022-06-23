@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Desafio Menu</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald"
+      rel="stylesheet"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #d4d2d4;
+      }
+
+      header {
+        background-color: #343334;
+        height: 80px;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: 5px solid #6BA2CE;
+        box-sizing: content-box;
+      }
+
+      header .logo img {
+        height: 40px;
+        margin-left: 15px;
+      }
+
+
+      a {
+        text-decoration: none;
+        margin-left: 10px;
+        font-family: 'Oswald', sans-serif;
+        font-size: 20px;
+        padding: 10px 10px;
+        
+      }
+
+      a:visited {
+        text-decoration: none;
+        color: white;
+      }
+
+      ul {
+        list-style-type: none;
+
+        display: flex;
+        
+        
+      }
+
+
+
+      
+      li > a:hover,
+      li a.selected
+       {
+        background-color: #6BA2CE;
+        color: #000000;
+      }
+
+      
+
+      
+
+      aside {
+        position: absolute;
+        right: 10px;
+        
+      }
+
+      
+
+      .destaque {
+        background-color: #D12F3A;
+        border-radius: 30px;
+        padding: 2px 15px;
+        
+      }
+
+      .destaque:hover {
+        background-color: #ac1a23;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+
+      @media (max-width: 900px) {
+        aside {
+          display: none;
+        }
+      }
+      @media (max-width: 600px) {
+        li {
+          display: none;
+
+        }
+
+        .menu-toggle {
+          display: block;
+          position: absolute;
+          right: 10px;
+        }
+      }
+
+      
+
+    </style>
+  </head>
+
+  <body>
+    <header class="cabecalho">
+      <div class="logo">
+        <a href="#inicio">
+          <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+        </a>
+      </div>
+      <button class="menu-toggle">
+        <i class="fa fa-lg fa-bars"></i>
+      </button>
+      <nav class="menu">
+        <ul>
+          <li>
+            <a href="#inicio">Início</a>
+          </li>
+          <li>
+            <a href="#cursos">Cursos</a>
+          </li>
+          <li>
+            <a href="#sobre">Sobre</a>
+          </li>
+          <li>
+            <a href="#contato">Contato</a>
+          </li>
+        </ul>
+      </nav>
+      <aside class="autenticacao">
+        <a href="#login">Login</a>
+        <a href="#registar" class="botao destaque">Registrar</a>
+      </aside>
+    </header>
+
+    <script>
+      window.onhashchange = function(e) {
+        const oldURL = e.oldURL.split('#')[1]
+        const newURL = e.newURL.split('#')[1]
+        console.log(oldURL, newURL)
+        const oldMenu = document.querySelector(`.menu a[href='#${oldURL}']`)
+        const newMenu = document.querySelector(`.menu a[href='#${newURL}']`)
+        oldMenu && oldMenu.classList.remove('selected')
+        newMenu && newMenu.classList.add('selected')
+      }
+    </script>
+  </body>
+</html>
